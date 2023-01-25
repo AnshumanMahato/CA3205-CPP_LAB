@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void isIdentical(int *, int *, int, int);
+int isIdentical(int *, int *, int, int);
 
 int main()
 {
@@ -21,18 +21,20 @@ int main()
         scanf("%d", arr2 + i);
     }
 
-    isIdentical(arr1, arr2, size1, size2);
-
+    if (isIdentical(arr1, arr2, size1, size2))
+        printf("Arrays are identical");
+    else
+        printf("Arrays are not identical");
     return 0;
 }
 
-void isIdentical(int *a1, int *a2, int s1, int s2)
+int isIdentical(int *a1, int *a2, int s1, int s2)
 {
     int i;
     if (a1 == a2)
-        printf("Given pointers point to the same array");
+        return 1;
     else if (s1 != s2)
-        printf("Arrays are not identical");
+        return 0;
     else
     {
         for (i = 0; i < s1; i++)
@@ -42,8 +44,8 @@ void isIdentical(int *a1, int *a2, int s1, int s2)
         }
 
         if (i != s1)
-            printf("Arrays are not identical");
+            return 0;
         else
-            printf("Arrays are identical");
+            return 1;
     }
 }

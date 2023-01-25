@@ -4,7 +4,7 @@
 int main()
 {
     int *arr, size, i, j, temp, dup = 0;
-    printf("Enter size for the array:5");
+    printf("Enter size for the array:");
     scanf("%d", &size);
 
     arr = (int *)malloc(size * sizeof(int));
