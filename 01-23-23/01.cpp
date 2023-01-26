@@ -12,7 +12,7 @@ struct KYC
 	string name;
 	Date dob;
 	char pan[10];
-	string uid;
+	long long uid;
 	string add;
 	float income, saving;
 
@@ -21,7 +21,7 @@ struct KYC
 		fflush(stdin);
 		cout << "\nEnter name:";
 		getline(cin, name);
-		cout << "Enter Dob(dd mm yy):";
+		cout << "Enter Dob(dd mm yyyy):";
 		cin >> dob.day >> dob.month >> dob.year;
 		cout << "Enter PAN:";
 		cin >> pan;
@@ -45,12 +45,12 @@ struct KYC
 	void ouput()
 	{
 		cout << "\nName:" << name;
-		cout << "\nDob(dd mm yy):" << dob.day << '-' << dob.month << '-' << dob.year;
+		cout << "\nDob(dd-mm-yy):" << dob.day << '-' << dob.month << '-' << dob.year;
 		cout << "\nPAN:" << pan;
 		cout << "\nAadhar:" << uid;
 		cout << "\nAddress:" << add;
-		cout << "\nAnnual Income:" << income;
-		cout << "\nSavings under tax scheme:" << saving;
+		cout << "\nAnnual Income:" << fixed << setprecision(2) << income;
+		cout << "\nSavings under tax scheme:" << fixed << setprecision(2) << saving;
 	}
 
 	float computeTax()
@@ -60,7 +60,7 @@ struct KYC
 		else if (income <= 1000000)
 			return 0.1 * (income - saving);
 		else
-			return 0.1 * (income - saving);
+			return 0.2 * (income - saving);
 	}
 };
 
@@ -75,7 +75,7 @@ int main()
 		list[i].input();
 	}
 
-	cout << "\nKYC Detais:\n";
+	cout << "\nKYC Detais:";
 	for (int i = 0; i < size; i++)
 	{
 		cout << "\n\nKYC " << i + 1;
