@@ -31,9 +31,9 @@ struct Product
             cout << "Enter user rating:";
             cin >> userRating;
 
-            if (userRating < 0 && userRating > 5)
+            if (userRating < 0 || userRating > 5)
                 cout << "\nRatings must be between 0 and 5\n";
-        } while (userRating < 0 && userRating > 5);
+        } while (userRating < 0 || userRating > 5);
     }
 
     void output_detail()
