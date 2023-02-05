@@ -24,4 +24,23 @@ inline int aXORb(int a, int b)
 
 int main()
 {
+    int p, v, n, r, t, u, a, b;
+    float rho, g;
+    cout << "\nEnter values for p,v,n,r,t to check for Ideal gas law:";
+    cin >> p >> v >> n >> r >> t;
+    if (gasLaw(p, v, n, r, t))
+        cout << "Given values satisfy the ideal gas law.\n";
+    else
+        cout << "Given values do not satisfy the ideal gas law.\n";
+    cout << "\nEnter volume, density and gravity to calculate bouyant force:";
+    cin >> v >> rho >> g;
+    cout << "Bouyant Force: " << bouyantForce(v, rho, g);
+    cout << "\nEnter initial velocity, acceleration and time to calculate displacement:";
+    cin >> u >> a >> t;
+    cout << "Displacement: " << displacement(u, a, t);
+    cout << "\n Enter a and b to calculate a xor b:";
+    cin >> a >> b;
+    cout << "a xor b: " << aXORb(a, b);
+
+    return 0;
 }
