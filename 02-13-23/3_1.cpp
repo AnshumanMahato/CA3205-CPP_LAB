@@ -17,7 +17,7 @@ public:
     }
     ~Number()
     {
-        cout << "Number Destroyed...";
+        cout << "object destroyed for class Num";
     }
 
     int getNumber()
