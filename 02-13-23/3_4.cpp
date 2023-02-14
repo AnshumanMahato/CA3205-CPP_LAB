@@ -24,7 +24,7 @@ public:
 
     void getTime()
     {
-        cout << hour % 12 << ':' << min << ':' << sec << hour % 12 ? " AM" : " PM";
+        cout << ((hour % 12) ? (hour % 12) : 12) << ':' << min << ':' << sec << ((hour % 12) ? " PM" : " AM");
     }
 
     void setTime(int &h, int &m, int &s)
@@ -38,7 +38,7 @@ public:
         hour = min = sec = 0;
     }
 
-    void timeDifference(Time &t1, Time &t2)
+    void calcTimeDifference(Time &t1, Time &t2)
     {
         int s1 = t1.hour * 3600 + t1.min * 60 + t1.sec;
         int s2 = t2.hour * 3600 + t2.min * 60 + t1.sec;
@@ -49,3 +49,21 @@ public:
         printf("\nTime Difference:%d:%d:%d", hour, min, sec);
     }
 };
+
+int main()
+{
+    Time t1;
+    cout << "Intialized using default constructor:\n";
+    t1.getTime();
+    int h, m, s;
+    cout << "\nEnter time (HH MM SS) format:\n";
+    cin >> h >> m >> s;
+    Time t2(h, m, s), t3({11, 15, 47});
+    cout << "\nIntialized using parameterized constructor\n";
+    t2.getTime();
+    t1.calcTimeDifference(t2, t3);
+    t1.resetTime();
+    cout << "\nTime reset succesfully\n";
+    t1.getTime();
+    return 0;
+}

@@ -74,7 +74,7 @@ int main()
     cout << "Enter numerator & denominator for fraction 1:";
     cin >> n >> d;
     Fraction f1(n, d), f2, f3;
-    cout << "Enter numerator & denominator for fraction 1:";
+    cout << "Enter numerator & denominator for fraction 2:";
     cin >> n >> d;
     f2.setFraction(n, d);
     cout << "\nValue f1: ";

@@ -49,6 +49,29 @@ public:
 
     bool onAxis()
     {
-        return xCo && yCo;
+        return !(xCo && yCo);
     }
 };
+
+int main()
+{
+    int x, y;
+    cout << "Enter coordinates p2:";
+    cin >> x >> y;
+    Poin2D p1, p2(x, y), p3;
+    cout << "\nPoint 1: ";
+    p1.getPoint();
+    cout << "\nPoint 2: ";
+    p2.getPoint();
+    cout << "\nIs p2 inside circle with p1 center and radius 10: " << p2.insideCircle(10, p1);
+    cout << "\nEnter coordinates p3:";
+    cin >> x >> y;
+    p3.setPoint(x, y);
+    cout << "\nPoint 3: ";
+    p3.getPoint();
+    cout << "\nIs p1 p2 p3 collinear: " << p3.checkCollinear(p1, p2);
+    cout << "\nIs p1 on axis: " << p1.onAxis();
+    cout << "\nIs p2 on axis: " << p2.onAxis();
+    cout << "\nIs p3 on axis: " << p3.onAxis();
+    return 0;
+}
