@@ -43,9 +43,9 @@ public:
 
     void showSides()
     {
-        cout << "\nSide1" << side1.len;
-        cout << "\nSide2" << side2.len;
-        cout << "\nSide3" << side3.len;
+        cout << "\nSide1: " << side1.len;
+        cout << "\nSide2: " << side2.len;
+        cout << "\nSide3: " << side3.len;
     }
 
     friend float findArea(Triangle t);
@@ -55,4 +55,21 @@ float findArea(Triangle t)
 {
     int s = (t.side1.len + t.side2.len + t.side3.len) / 2;
     return sqrt(s * (s - t.side1.len) * (s - t.side2.len) * (s - t.side3.len));
+}
+
+int main()
+{
+    Line side1(5);
+    Line side2(6);
+    Line side3(7);
+    Triangle myTriangle(side1, side2, side3);
+    cout << "\nSides of the triangle:" << endl;
+    myTriangle.showSides();
+    float area = findArea(myTriangle);
+    cout << "\nArea of the triangle: " << area << endl;
+    Triangle copyTriangle(myTriangle);
+    cout << "\nSides of the copied triangle:" << endl;
+    copyTriangle.showSides();
+
+    return 0;
 }
