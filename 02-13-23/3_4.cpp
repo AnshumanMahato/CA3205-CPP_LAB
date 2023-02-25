@@ -24,7 +24,10 @@ public:
 
     void getTime()
     {
-        cout << ((hour % 12) ? (hour % 12) : 12) << ':' << min << ':' << sec << ((hour % 12) ? " PM" : " AM");
+        cout << ((hour % 12) ? (hour % 12) : 12) << ':'
+             << min << ':'
+             << sec
+             << ((hour % 12) ? " PM" : " AM");
     }
 
     void setTime(int &h, int &m, int &s)
