@@ -6,49 +6,49 @@ class Account
 {
     int accNo;
     float balance;
-    static float totalBalance;
+    static float totalBal;
 
 public:
     Account(int acc, float bal = 0)
     {
         accNo = acc;
         balance = bal;
-        totalBalance += bal;
+        totalBal += bal;
     }
     ~Account()
     {
-        totalBalance -= this->balance;
+        totalBal -= this->balance;
     }
 
     void deposit(float amount)
     {
         balance += amount;
-        totalBalance += amount;
+        totalBal += amount;
     }
     void withdraw(float amount)
     {
         balance -= amount;
-        totalBalance -= amount;
+        totalBal -= amount;
     }
     int get_balance()
     {
         return balance;
     }
-    static int get_total_balance()
+    static float get_total_balance()
     {
-        return totalBalance;
+        return totalBal;
     }
     static void addtobank(float amount)
     {
-        totalBalance += amount;
+        totalBal += amount;
     }
     static void deductfrombank(float amount)
     {
-        totalBalance -= amount;
+        totalBal -= amount;
     }
 };
 
-float Account::totalBalance = 0.0;
+float Account::totalBal = 0.0;
 
 int main()
 {

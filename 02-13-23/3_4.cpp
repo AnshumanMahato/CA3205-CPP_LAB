@@ -27,7 +27,7 @@ public:
         cout << ((hour % 12) ? (hour % 12) : 12) << ':'
              << min << ':'
              << sec
-             << ((hour % 12) ? " PM" : " AM");
+             << ((hour / 12) ? " PM" : " AM");
     }
 
     void setTime(int &h, int &m, int &s)
@@ -44,7 +44,7 @@ public:
     void calcTimeDifference(Time &t1, Time &t2)
     {
         int s1 = t1.hour * 3600 + t1.min * 60 + t1.sec;
-        int s2 = t2.hour * 3600 + t2.min * 60 + t1.sec;
+        int s2 = t2.hour * 3600 + t2.min * 60 + t2.sec;
         s1 = abs(s1 - s2);
         hour = s1 / 3600;
         min = s1 / 60 - hour * 60;

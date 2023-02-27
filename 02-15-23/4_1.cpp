@@ -1,4 +1,6 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 class IntStack
 {
@@ -53,26 +55,20 @@ public:
     {
         if (top == capacity - 1)
         {
-            int *newData = new int[2 * capacity];
-            for (int i = 0; i < capacity; i++)
-            {
-                newData[i] = data[i];
-            }
-            delete[] data;
-            data = newData;
-            capacity *= 2;
+            cout << "Stack is full.";
+            return;
         }
         top++;
         data[top] = val;
     }
     void display()
     {
-        std::cout << "Stack 1 elements: ";
+        cout << "Stack elements: ";
         while (top != -1)
         {
-            std::cout << pop() << " ";
+            cout << pop() << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 };
 
