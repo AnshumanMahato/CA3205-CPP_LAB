@@ -227,7 +227,7 @@ int main()
     cout << "\nMagnitude v1:" << magnitude;
     cout << "\nMagnitude v2:" << (float)v2;
     Matrix m1 = v1;
-    cout << "\n m1: \n"
+    cout << "\nm1:\n"
          << m1;
     return 0;
 }
