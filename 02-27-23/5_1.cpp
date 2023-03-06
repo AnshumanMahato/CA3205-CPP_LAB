@@ -3,7 +3,41 @@
 
 using namespace std;
 
-class Matrix;
+class Matrix
+{
+    int row, col;
+    int **mat;
+
+public:
+    Matrix(int row, int col)
+    {
+        this->row = row;
+        this->col = col;
+        this->mat = new int *[row];
+        for (int i = 0; i < row; i++)
+            mat[i] = new int[col];
+    }
+
+    Matrix(const Matrix &m)
+    {
+        this->row = m.row;
+        this->col = m.col;
+        this->mat = new int *[row];
+        for (int i = 0; i < row; i++)
+            mat[i] = new int[col];
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                this->mat[i][j] = m.mat[i][j];
+            }
+        }
+    }
+
+    friend ostream &operator<<(ostream &out, Matrix m);
+
+    friend class Vector;
+};
 
 class Vector
 {
@@ -154,32 +188,18 @@ Vector operator--(Vector &v, int)
     return prev;
 }
 
-class Matrix
+ostream &operator<<(ostream &out, Matrix m)
 {
-    int row, col;
-    int **mat;
-
-public:
-    Matrix(int row, int col)
+    for (int i = 0; i < m.row; i++)
     {
-        this->row = row;
-        this->col = col;
-        this->mat = new int *[row];
-        for (int i = 0; i < row; i++)
-            mat[i] = new int[col];
+        for (int j = 0; j < m.col; j++)
+        {
+            out << m.mat[i][j] << ' ';
+        }
+        out << endl;
     }
-
-    Matrix(const Matrix &m)
-    {
-        this->row = m.row;
-        this->col = m.col;
-        this->mat = new int *[row];
-        for (int i = 0; i < row; i++)
-            mat[i] = new int[col];
-    }
-
-    friend class Vector;
-};
+    return out;
+}
 
 int main()
 {
@@ -206,5 +226,8 @@ int main()
     float magnitude = v1;
     cout << "\nMagnitude v1:" << magnitude;
     cout << "\nMagnitude v2:" << (float)v2;
+    Matrix m1 = v1;
+    cout << "\n m1: \n"
+         << m1;
     return 0;
 }
