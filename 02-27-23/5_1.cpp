@@ -58,7 +58,7 @@ public:
         for (int i = 0; i < this->size; i++)
             this->arr[i] = v.arr[i];
     }
-
+    // Task 1
     Vector operator+(Vector a)
     {
         Vector temp(this->size);
@@ -75,7 +75,7 @@ public:
         return temp;
     }
 
-    Vector operator-()
+    Vector operator-() // Unary -
     {
         Vector temp(this->size);
         for (int i = 0; i < this->size; i++)
@@ -99,6 +99,10 @@ public:
         return temp;
     }
 
+    friend ostream &operator<<(ostream &out, Vector v);
+    friend istream &operator>>(istream &out, Vector &v);
+
+    // Task 2
     Vector operator*=(int fact)
     {
         for (int i = 0; i < this->size; i++)
@@ -113,9 +117,7 @@ public:
         return *this;
     }
 
-    friend ostream &operator<<(ostream &out, Vector v);
-    friend istream &operator>>(istream &out, Vector &v);
-
+    // Task 3
     friend Vector operator--(Vector &);
     friend Vector operator--(Vector &, int);
     Vector operator++()
@@ -132,6 +134,7 @@ public:
         return prev;
     }
 
+    // Task 4a
     operator float()
     {
         float mag = 0;
@@ -143,6 +146,7 @@ public:
         return sqrt(mag);
     }
 
+    // Task 4b
     operator Matrix()
     {
         Matrix mat(1, this->size);
