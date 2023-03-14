@@ -100,7 +100,7 @@ public:
     }
 
     friend ostream &operator<<(ostream &out, Vector v);
-    friend istream &operator>>(istream &out, Vector &v);
+    friend istream &operator>>(istream &in, Vector &v);
 
     // Task 2
     Vector operator*=(int fact)
@@ -214,6 +214,7 @@ int main()
     cin >> v2;
     cout << "V1:" << v1;
     cout << "V2:" << v2;
+    cout << "-V2:" << -v2;
     v3 = v1 + v2;
     cout << "v1+v2:" << v3;
     v3 = v1 - v2;
