@@ -21,6 +21,7 @@ public:
     ~Student() { cout << "Obj destroyed for class Student\n"; }
     void printData()
     {
+        cout << "\nStudent Details:\n";
         printf("Roll No : %d\nName : %s\nBranch : %s\nInstitute : %s\nCGPA : %.2f\n", rollno, name.c_str(), branch.c_str(), institute.c_str(), cgpa);
     }
 };
@@ -43,6 +44,7 @@ public:
     ~Employee() { cout << "Obj destroyed for class Employee\n"; }
     void printData()
     {
+        cout << "\n\nEmployee Details:\n";
         printf("Employee ID: %s\nName: %s\nOrganistion: %s\nSalary: %.2f\n", empid.c_str(), name.c_str(), org.c_str(), salary);
     }
 };
@@ -53,10 +55,9 @@ public:
     ~WorkingStudent() { cout << "Obj destroyed for class WorkingStudent\n"; }
     void printData()
     {
-        cout << "\nStudent Details:\n";
-        Student::printData();
-        cout << "\n\nEmployee Details:";
-        Employee::printData();
+        cout << "\nWorking Student Details:\n";
+        printf("Roll No : %d\nName : %s\nBranch : %s\nInstitute : %s\nCGPA : %.2f\n", rollno, Student::name.c_str(), branch.c_str(), institute.c_str(), cgpa);
+        printf("Employee ID: %s\nName: %s\nOrganistion: %s\nSalary: %.2f\n", empid.c_str(), Employee::name.c_str(), org.c_str(), salary);
         cout << endl;
     }
 };
@@ -64,5 +65,9 @@ int main()
 {
     WorkingStudent ws(45, "Sushanto", "M.C.A", "NIT_JSR", 6.42, "LABOR123", "TATA_MOTORS", 100.42);
     ws.printData();
+    Student *stud = &ws;
+    stud->printData();
+    Employee *emp = &ws;
+    emp->printData();
     return 0;
 }
